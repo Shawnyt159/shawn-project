@@ -118,5 +118,8 @@ for index, row in questions_dataframe.iterrows():
 # Create a DataFrame with the data
 df = pd.DataFrame(data, columns=output_columns)
 
+cursor.execute("delete from embeddings")
+conn.commit()
+
 # Save the DataFrame to a new Excel file
 df.to_excel("output.xlsx", index=False)
